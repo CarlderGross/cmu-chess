@@ -46,7 +46,7 @@ def drawKing(x, y, color):
 blackKing = drawKing(225,25,'darkslategrey')
 blackPieces.append(blackKing)
 
-whiteKing = drawKing(225,375,'mocassin')
+whiteKing = drawKing(225,375,'moccasin')
 whitePieces.append(whiteKing)
 
 def drawQueen(x, y, color):
@@ -67,7 +67,7 @@ def drawQueen(x, y, color):
     return queen
 
 blackPieces.append(drawQueen(175, 25, 'darkslategrey'))
-whitePieces.append(drawQueen(175, 375, 'mocassin'))
+whitePieces.append(drawQueen(175, 375, 'moccasin'))
 
 def drawBishop(x, y, color):
     bishop = Group(
@@ -94,8 +94,8 @@ def drawBishop(x, y, color):
 blackPieces.append(drawBishop(125, 25, 'darkslategrey'))
 blackPieces.append(drawBishop(275, 25, 'darkslategrey'))
 
-whitePieces.append(drawBishop(125, 375, 'mocassin'))
-whitePieces.append(drawBishop(275, 375, 'mocassin'))
+whitePieces.append(drawBishop(125, 375, 'moccasin'))
+whitePieces.append(drawBishop(275, 375, 'moccasin'))
     
 def drawRook(x, y, color):
     rook = Group(
@@ -115,8 +115,8 @@ def drawRook(x, y, color):
 blackPieces.append(drawRook(25, 25, 'darkslategrey'))
 blackPieces.append(drawRook(375, 25, 'darkslategrey'))
 
-whitePieces.append(drawRook(25, 375, 'mocassin'))
-whitePieces.append(drawRook(375, 375, 'mocassin'))
+whitePieces.append(drawRook(25, 375, 'moccasin'))
+whitePieces.append(drawRook(375, 375, 'moccasin'))
 
 def drawKnight(x, y, color):
     knight = Group(
@@ -134,8 +134,8 @@ def drawKnight(x, y, color):
 blackPieces.append(drawKnight(75, 25, 'darkslategrey'))
 blackPieces.append(drawKnight(325, 25, 'darkslategrey'))
 
-whitePieces.append(drawKnight(75,375, 'mocassin'))
-whitePieces.append(drawKnight(325,375, 'mocassin'))
+whitePieces.append(drawKnight(75,375, 'moccasin'))
+whitePieces.append(drawKnight(325,375, 'moccasin'))
 
 def drawPawn(x, y, color):
     pawn = Group(
@@ -153,7 +153,7 @@ def drawPawn(x, y, color):
 x = 25
 while (x < 400):
     blackPieces.append(drawPawn(x, 75, 'darkslategrey'))
-    whitePieces.append(drawPawn(x, 325, 'mocassin'))
+    whitePieces.append(drawPawn(x, 325, 'moccasin'))
     x += 50
 
 # Piece movement functions #
@@ -201,7 +201,7 @@ def getPiece(x, y):
         return None
 
 def getPawnMoves(pawn):
-    if pawn.fill == 'mocassin': #if it's a white pawn
+    if pawn.fill == 'moccasin': #if it's a white pawn
         if (drawMove(pawn.centerX, pawn.centerY-50) and (pawn.centerY == 325)):
             #if it's currently on the home row, and it was possible to draw the normal move,
             drawMove(pawn.centerX, pawn.centerY-100) #draw the bonus move (to move two spaces)
@@ -486,7 +486,7 @@ def detectThreat(x, y, color):
                 return True
     
     #detect pawn
-    if color == 'mocassin':
+    if color == 'moccasin':
         if (getPiece(x-50, y-50)):
             if getPiece(x-50, y-50).type == 'pawn':
                 if getPiece(x-50, y-50).fill != color:
@@ -555,7 +555,7 @@ def getKingMoves(king):
         if getPiece(x, king.centerY):
             if getPiece(x, king.centerY).type == 'rook':
                 if x == 375 and (not app.check):
-                    if king.fill == 'mocassin':
+                    if king.fill == 'moccasin':
                         if (king.centerY == 375) and app.wCanCastle:
                             castle = drawRook(375, 375, 'green')
                             castle.toBack()
@@ -580,7 +580,7 @@ def getKingMoves(king):
         if getPiece(x, king.centerY):
             if getPiece(x, king.centerY).type == 'rook':
                 if x == 25 and (not app.check):
-                    if king.fill == 'mocassin':
+                    if king.fill == 'moccasin':
                         if (king.centerY == 375) and app.wCanCastle:
                             castle = drawRook(25, 375, 'green')
                             castle.toBack()
@@ -718,7 +718,7 @@ def movePiece(piece, move):
         if abs(piece.centerY - savedY) > 50:
             passent = Circle(piece.centerX, savedY+((savedY-piece.centerY)/-2), 1, fill=None)
             passent.target = piece
-            if piece.fill == 'mocassin':
+            if piece.fill == 'moccasin':
                 app.wPassent = passent
             else:
                 app.bPassent = passent
@@ -961,10 +961,10 @@ def onMousePress(mouseX, mouseY):
             #select a piece, only if it's the correct turn
             if app.turn:
                 if (getPiece(mouseX, mouseY).type != 'bishop'):
-                    if getPiece(mouseX, mouseY).fill == 'mocassin':
+                    if getPiece(mouseX, mouseY).fill == 'moccasin':
                         app.selection = getPiece(mouseX, mouseY)
                 else:
-                    if getPiece(mouseX, mouseY).color == 'mocassin':
+                    if getPiece(mouseX, mouseY).color == 'moccasin':
                         app.selection = getPiece(mouseX, mouseY)
             else:
                 if (getPiece(mouseX, mouseY).type != 'bishop'):
