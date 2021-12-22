@@ -1015,3 +1015,5 @@ def onKeyHold(keys):
     if ('c' in keys) and ('space' in keys) and ('enter' in keys):
         endGame()
         #c+space+enter concedes the game
+        
+cmu_graphics.run()
