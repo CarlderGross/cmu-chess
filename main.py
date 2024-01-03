@@ -551,7 +551,7 @@ def getKingMoves(king):
     #square isn't threatened
     
     #also, castling
-    for x in range(king.centerX+50, 400, 50):
+    for x in range(int(king.centerX+50), 400, 50):
         if getPiece(x, king.centerY):
             if getPiece(x, king.centerY).type == 'rook':
                 if x == 375 and (not app.check):
